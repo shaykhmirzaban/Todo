@@ -17,12 +17,14 @@ const Header = () => {
   hour = hour > 12 ? hour - 12 : hour;
   let amOrPm = hour > 12 ? "PM" : "AM";
 
+  hour = hour === 0 ? 12 : hour;
+
   hour = hour < 10 ? `0${hour}` : hour;
   minut = minut < 10 ? `0${minut}` : minut;
 
   // formate
   cTime = `${hour}:${minut} ${amOrPm}`;
-
+  // update time automatic
   setInterval(() => {
     CTimeU(`${hour}:${minut} ${amOrPm}`);
   }, 1000);
@@ -32,7 +34,7 @@ const Header = () => {
   return (
     <React.StrictMode>
       <section className="Header">
-        <h1>Todo List</h1>
+        <h1>Todo Doto</h1>
         <h1 className="userName">Shaykh Mirzaban</h1>
         <div className="date">
           <div className="time">{cTime}</div>

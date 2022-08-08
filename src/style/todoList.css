@@ -1,36 +1,44 @@
 .item{
     width: 100%;
     max-width: 700px;
-    min-width: 500px;
     height: 45px;
     margin: .5rem;
     padding: 0 0.5rem;
     border-radius: 10px;
     font-size: 1.1rem;
-    background-color: #2b2d42;
+    background-color: #7a4069;
     color: #edf2f4;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 li{
     list-style: none;
 }
+
 .deleteUpdate{
     width: 40px;
     display: flex;
     justify-content: space-between;
 }
+
 .fa-trash:hover{
     color: #ef233c;
     cursor: pointer;
 }
+
 .fa-square-pen:hover{
     color: #a8dadc;
     cursor: pointer;
 }
 
 .fa-square:hover, .fa-square-check:hover{
-    color: #1e810a;
     cursor: pointer;
+}
+
+@media screen and (max-width: 400px) {
+    .TodoList{
+        margin: 1rem 0.5rem;
+    }
 }

@@ -11,15 +11,24 @@ const Todo = () => {
     setCurrentItem(e.target.value);
   };
 
+  // Add Items
   const addItem = () => {
-    updateTotalItems((item) => {
-      return [...item, currentItem];
-    });
     let search = document.querySelector(".search");
-    search.value = "";
+
+    if (search.value === "") {
+      alert("Empty field can't be added");
+    } else {
+      updateTotalItems((item) => {
+        return [...item, currentItem];
+      });
+
+      search.value = "";
+    }
+
     search.focus();
   };
 
+  // Delete Item
   const deleted = (id) => {
     updateTotalItems((val) => {
       return val.filter((value, index) => {
@@ -27,16 +36,24 @@ const Todo = () => {
       });
     });
   };
+
   let global;
   let boxSection = document.querySelector(".updateValueBox");
   let last = document.querySelector(".lastValue");
+
+  // Update Item
   const updateItem = (id) => {
+    let currentV;
+
     global = id;
     boxSection.style.transform = "scale(1)";
-    let currentV = totalItems[id];
+    currentV = totalItems[id];
     last.value = currentV;
+
+    last.focus();
   };
 
+  // Update Item When Click Replace Button
   const change = () => {
     updateTotalItems((val) => {
       return val.map((value, index) => {
@@ -47,6 +64,7 @@ const Todo = () => {
         }
       });
     });
+
     boxSection.style.transform = "scale(0)";
   };
 
